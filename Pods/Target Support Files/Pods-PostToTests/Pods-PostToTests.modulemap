@@ -1,0 +1,6 @@
+framework module Pods_PostToTests {
+  umbrella header "Pods-PostToTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

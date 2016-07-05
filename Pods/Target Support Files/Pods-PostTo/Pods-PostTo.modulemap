@@ -1,0 +1,6 @@
+framework module Pods_PostTo {
+  umbrella header "Pods-PostTo-umbrella.h"
+
+  export *
+  module * { export * }
+}
