@@ -7,7 +7,9 @@ target 'PostTo' do
 
   # Pods for PostTo
   pod 'RealmSwift'
-
+  pod 'Fabric'
+  pod 'Crashlytics'
+  
   target 'PostToTests' do
     inherit! :search_paths
     # Pods for testing

@@ -8,15 +8,14 @@
 
 import Foundation
 import RealmSwift
+import Accounts
 
 enum AccountType: Int8 {
     case Facebook = 0, Twitter
 }
 
 class Account: Object {
-    
-    dynamic var name: String = ""
+    dynamic var username: String = ""
+    dynamic var accountID: String = ""
     dynamic var type: Int8 = 0
-    dynamic var associatedObject: Object?
-
 }
