@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+struct PostManager {
+    
+    let accounts: [Account]
+    
+    init(accounts: [Account]) {
+        self.accounts = accounts
+    }
+    
+    func postMessage(message: String) {
+        
+    }
+    
+}

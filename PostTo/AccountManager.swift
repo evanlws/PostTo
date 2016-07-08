@@ -11,7 +11,10 @@ import Accounts
 
 struct AccountManager {
     
-    func fetchTwitterAccounts(completion: (accounts: [Account]) -> Void) {
+    let persistencyManager = PersistencyManager()
+    
+    // Gets account objects based on AcAccount
+    func requestTwitterAccountsFromACAccountStore(completion: (accounts: [Account]) -> Void) {
         let accountStore = ACAccountStore()
         let accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
         var accounts = [Account]()
@@ -21,14 +24,29 @@ struct AccountManager {
                 let acAccounts = accountStore.accountsWithAccountType(accountType)
                 for acAccount in acAccounts {
                     let account = Account()
-                    account.username = acAccount.username
                     account.type = AccountType.Twitter.rawValue
+                    account.username = acAccount.username
                     account.accountID = acAccount.identifier
                     accounts.append(account)
                 }
+            } else {
+                assertionFailure("Permission not granted")
             }
+            
+            if (error != nil) {
+                assertionFailure("ERROR with request: \(error)")
+            }
+            
             completion(accounts: accounts)
         }
+    }
+    
+    func storeAccount(account: Account) {
+        persistencyManager.storeAccount(account)
+    }
+    
+    func fetchAccountWithID(accountID: String) -> Account? {
+        return persistencyManager.fetchAccountWithID(accountID)
     }
 }
 

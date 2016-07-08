@@ -8,20 +8,27 @@
 
 import UIKit
 import Accounts
+import Realm
 
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Fetch Twitter Accounts
+        selectTwitterAccounts()
+    }
+    
+    private func selectTwitterAccounts() {
         let accountManager = AccountManager()
-        accountManager.fetchTwitterAccounts { (accounts) in
-            let accountActionSheet = UIAlertController(title: nil, message: "Select an Account", preferredStyle: .ActionSheet)
+        accountManager.requestTwitterAccountsFromACAccountStore { (accounts) in
+            let accountActionSheet = UIAlertController(title: nil, message: "Add an account to PostTo", preferredStyle: .ActionSheet)
             
             for account in accounts {
+                // Once an account is selected, add it to the list of users' accounts
                 let accountSelection = UIAlertAction(title: account.username, style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                    accountManager.storeAccount(account)
                     print("Selected \(account.username)")
+                    
                 })
                 accountActionSheet.addAction(accountSelection)
             }
@@ -30,7 +37,6 @@ class ViewController: UIViewController {
                 self.presentViewController(accountActionSheet, animated: true, completion: nil)
             }
         }
-        
     }
 }
 

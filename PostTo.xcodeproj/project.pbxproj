@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F7180391D3009F700F7DECF /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7180381D3009F700F7DECF /* PersistencyManager.swift */; };
 		4F95B7571D2AF94000D58237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F95B7561D2AF94000D58237 /* AppDelegate.swift */; };
 		4F95B7591D2AF94000D58237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F95B7581D2AF94000D58237 /* ViewController.swift */; };
 		4F95B75C1D2AF94000D58237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F95B75A1D2AF94000D58237 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		0805AAA23DD860420F5183B2 /* Pods-PostToUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostToUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PostToUITests/Pods-PostToUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E4924E0BD82C30B3BD20624 /* Pods-PostTo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostTo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PostTo/Pods-PostTo.debug.xcconfig"; sourceTree = "<group>"; };
 		31BC66C9382DD4FF5F74CC48 /* Pods_PostTo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostTo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F7180381D3009F700F7DECF /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
 		4F95B7531D2AF94000D58237 /* PostTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F95B7561D2AF94000D58237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F95B7581D2AF94000D58237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F71803A1D3018E400F7DECF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4FD840041D2B2A39003897A5 /* Account.swift */,
+				4F7180381D3009F700F7DECF /* PersistencyManager.swift */,
+				4F95B78A1D2B13C600D58237 /* AccountManager.swift */,
+				4F95B7881D2B13B700D58237 /* PostManager.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4F71803B1D3018F100F7DECF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F95B75A1D2AF94000D58237 /* Main.storyboard */,
+				4F95B75F1D2AF94000D58237 /* LaunchScreen.storyboard */,
+				4F95B75D1D2AF94000D58237 /* Assets.xcassets */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4F71803C1D30190D00F7DECF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4F95B7561D2AF94000D58237 /* AppDelegate.swift */,
+				4F95B7581D2AF94000D58237 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		4F95B74A1D2AF94000D58237 = {
 			isa = PBXGroup;
 			children = (
@@ -120,14 +152,9 @@
 		4F95B7551D2AF94000D58237 /* PostTo */ = {
 			isa = PBXGroup;
 			children = (
-				4F95B7561D2AF94000D58237 /* AppDelegate.swift */,
-				4FD840041D2B2A39003897A5 /* Account.swift */,
-				4F95B7581D2AF94000D58237 /* ViewController.swift */,
-				4F95B78A1D2B13C600D58237 /* AccountManager.swift */,
-				4F95B7881D2B13B700D58237 /* PostManager.swift */,
-				4F95B75A1D2AF94000D58237 /* Main.storyboard */,
-				4F95B75F1D2AF94000D58237 /* LaunchScreen.storyboard */,
-				4F95B75D1D2AF94000D58237 /* Assets.xcassets */,
+				4F71803A1D3018E400F7DECF /* Model */,
+				4F71803B1D3018F100F7DECF /* View */,
+				4F71803C1D30190D00F7DECF /* Controller */,
 				4F95B7621D2AF94000D58237 /* Info.plist */,
 			);
 			path = PostTo;
@@ -451,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FD840051D2B2A39003897A5 /* Account.swift in Sources */,
+				4F7180391D3009F700F7DECF /* PersistencyManager.swift in Sources */,
 				4F95B78B1D2B13C600D58237 /* AccountManager.swift in Sources */,
 				4F95B7591D2AF94000D58237 /* ViewController.swift in Sources */,
 				4F95B7891D2B13B700D58237 /* PostManager.swift in Sources */,

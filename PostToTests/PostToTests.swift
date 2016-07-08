@@ -7,23 +7,32 @@
 //
 
 import XCTest
+import Accounts
 @testable import PostTo
 
 class PostToTests: XCTestCase {
     
+    var accountManager = AccountManager()
+    var accounts = [Account]()
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        accountManager = AccountManager()
     }
     
-    func testCreateAccount() {
-        let accountManager = AccountManager()
-        var twitterAccounts = [Account]()
-        accountManager.fetchTwitterAccounts { (accounts) in
-            twitterAccounts = accounts
-            XCTAssertEqual(twitterAccounts.count, 2)
+    func test_A_FetchTwitterAccounts() {
+        accountManager.requestTwitterAccountsFromACAccountStore { (accounts) in
+            self.accounts = accounts
+            XCTAssertEqual(self.accounts.count, 2)
         }
         
+    }
+    
+    func test_C_StoreAccounts() {
+        for account in accounts {
+            accountManager.storeAccount(account)
+            XCTAssert(accountManager.fetchAccountWithID(account.accountID) != nil)
+        }
     }
     
 }
